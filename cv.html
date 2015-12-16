@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Mon CV</title>
+    <link rel="stylesheet" href="cv.css" type="text/css" /> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+    
+                    <!---------------- Scripts --------------->
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script> <!--lien vers le fichier jquery pour l'effet "hover"-->
+    <script type="text/javascript" src="js/jquery.mixitup.min.js"></script> <!--lien vers fichier JQuery pour l'effet filtre-->
+    
+    <script type="text/javascript">
+    $(function () {
+        
+        var filterList = {
+        
+            init: function () {
+            
+                // Plugin Mixitup, qui permet de filtrer les vignettes par catégorie
+                $('#portfoliolist').mixitup({
+                    targetSelector: '.portfolio',
+                    filterSelector: '.filter',
+                    effects: ['fade'],
+                    easing: 'snap',
+                    // call the hover effect
+                    onMixEnd: filterList.hoverEffect()
+                });             
+            
+            },
+            
+            hoverEffect: function () {
+            
+                // Fonction pour l'effet "hover"
+                $('#portfoliolist .portfolio').hover(
+                    function () {
+                        $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                        $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');             
+                    },
+                    function () {
+                        $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                        $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');                               
+                    }       
+                );              
+            
+            }
+        };
+        
+        // Lance les deux fonctions "hover" et "filtre"
+        filterList.init();
+        
+        
+    }); 
+    </script>
+    
+</head>
+<body>
+                    <!---------------- Header --------------->
+    <header>
+        <div class="row">
+            <div class="image col-md-6">
+                <img src="img/image_cv.jpg">
+            </div>
+            <div class="entete col-md-6">
+                <h1>SUDREAU Pierre-ALexandre</h1>
+                <h2>Programmeur, d'éveloppeur/codeur : un rêve d'enfance !</h2>
+            </div>
+        </div>
+    </header>
+
+    <main>
+                    <!---------------- Trois colonnes --------------->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="conteneur">
+                    <h3>Experiences</h3>
+                    <ul>
+						<li><strong>Juillet - 2011</strong> : Stage en SAV informatique, A6'PC Châtauroux </li>
+						<li><strong>Juillet - 2012</strong> : Stage en SAV informatique, A6'PC Châtauroux </li>
+		            </ul> 
+		        </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="conteneur">
+                    <h3>Compétences</h3>
+                    <ul>
+					    <li>Autodidacte : bonne maitrise de la bureautique </li>
+					    <li>HTML (base codecademy) </li>
+					    <li>CSS (base codecademy) </li>
+					    <li>PHP (base codecademy) </li>
+			        </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="conteneur">
+                    <h3>Formations</h3>
+                        <ul>
+						    <li><strong>Actuellement </strong> : Openclassroom, Simplonline, Codeurs-Indriens, Codecademy </li>
+					    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                    <!---------------- Portfolio --------------->
+            <h2>Mon portfolio</h2>
+            <!--data-filter permet de filtrer les vignettes par catégorie-->
+            <ul id="filters" class="clearfix row">
+                <li><span class="filter active" data-filter="cat1 cat2 cat3">Toutes mes catégories</span></li>
+                <li><span class="filter" data-filter="cat1">Languages</span></li>
+                <li><span class="filter" data-filter="cat2">Travaux</span></li>
+                <li><span class="filter" data-filter="cat3">Me retrouver</span></li>
+            </ul>
+
+            <div id="portfoliolist"> <!--La div qui contient les vignettes des projets-->
+                
+                <div class="portfolio cat1" data-cat="cat1">
+                    <div class="portfolio-wrapper">             
+                        <img src="img/4.jpg" alt="Html/Css" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Html/Css</a>
+                                <span class="text-category">Languages</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>              
+
+                <div class="portfolio cat1" data-cat="cat1">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/3.png" alt="Ruby" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Ruby</a>
+                                <span class="text-category">Languages</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>      
+                            
+                
+                <div class="portfolio cat1" data-cat="cat1">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/6.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Javascript</a>
+                                <span class="text-category">Languages</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>  
+                            
+                <div class="portfolio cat1" data-cat="cat1">
+                    <div class="portfolio-wrapper">
+                        <img src="img/8.png" alt="PHP" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">PHP</a>
+                                <span class="text-category">Languages</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>          
+                
+                <div class="portfolio cat2" data-cat="cat2">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/1.png" alt="Open food fact" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Open food Fact</a>
+                                <span class="text-category">Travaux</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                                                      
+                
+                <div class="portfolio cat2" data-cat="cat2">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/5.png" alt="bootstrap" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Bootstrap</a>
+                                <span class="text-category">Travaux</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                              
+                                                                                         
+                <div class="portfolio cat2" data-cat="cat2">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/7.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">CV</a>
+                                <span class="text-category">Travaux</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                                                                                                                                                    
+                
+                <div class="portfolio cat3" data-cat="cat3">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/9.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Codecademy</a>
+                                <span class="text-category"></span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>  
+                
+                <div class="portfolio cat3" data-cat="cat3">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/10.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Simplonline</a>
+                                <span class="text-category"></span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>  
+                
+                <div class="portfolio cat3" data-cat="cat3">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/11.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Github</a>
+                                <span class="text-category"></span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>  
+                
+                <div class="portfolio cat3" data-cat="cat3">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/12.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Openclassroom</a>
+                                <span class="text-category"></span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>  
+
+            </div><!-- portfoliolist -->
+        
+        </div><!-- container -->
+
+    </main>
+                    <!---------------- Map et coordonnées --------------->
+    <footer>
+            <div class="container">
+                <h2>Contacts</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2730.310801252403!2d1.6859854158372696!3d46.817880479140264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fb0a0c0103df7d%3A0xec91276798598eb8!2s22+Rue+de+la+Catiche%2C+36000+Ch%C3%A2teauroux%2C+France!5e0!3m2!1sfr!2sfr!4v1449010114253" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+               
+                            <div class="col-xs-6 modal-footer">
+                                <p><strong>Adresse : 22 rue de la Catiche, 36000, Châteauroux</strong></p>
+                                <p><strong>email:<a href="mailto:pierrealexandre.sudreau@gmail.com">pierrealexandre.sudreau@gmail.com</a></strong></p>
+                                <p><strong>Github : <a href="https://github.com/Stroow">https://github.com/Stroow</a></strong></p>
+					            <p><strong>Tel : 06.21.14.07.21</strong></p>
+					        </div>
+            </div>
+                    <!---------------- Formulaire --------------->
+        <fieldset>
+		    <div class="formulaire" >
+    			<form method="post" action="traitement.php">
+    				<p><label for="nom" >Votre Nom :</label></p>
+    					<input type="text" name="nom" size="30" maxlength="30" placeholder="Ex : Dupont" /></p>
+    				<p><label for="prénom" >Votre Prénom :</label><br/>
+    					<input type="text" name="prénom" size="30" maxlength="30" placeholder="Ex : Jean" /></p>
+    				<p><label for="mail" >Votre @mail :</label><br/>
+    					<input type="email" name="mail" size="30" maxlength="30" placeholder="Ex : monadressemail@xyz.com" /></p><br />
+    				<p><label for="mess">Commentaire</label><br />
+    					<textarea name="mess" id="mess" rows="10" cols="50" placeholder="Veuillez saisir votre message, merci"></textarea><br /><br />
+    					<input type="submit" value="Envoyer" />
+    			</form>
+		    </div>
+	    </fieldset>
+	    
+    </footer>
+    
+</body>
+</html>
